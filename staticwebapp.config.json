@@ -1,0 +1,55 @@
+# Azure Static Web Apps Configuration
+# Documentation: https://docs.microsoft.com/azure/static-web-apps/configuration
+
+name: CODEBYTE Production
+appBuildCommand: npm run build
+appLocation: "/"
+appArtifactLocation: "dist"
+outputLocation: "dist"
+apiLocation: ""
+
+# Optional: Custom routes
+routes:
+  - route: /api/*
+    allowedRoles: anonymous
+  
+  - route: /*
+    allowedRoles: anonymous
+    serve: "/index.html"
+
+# Navigation fallback
+navigationFallback:
+  rewrite: /index.html
+  exclude:
+    - /images/*.{png,jpg,gif,webp}
+    - /css/*
+    - /js/*
+    - /assets/*
+
+# Headers for security and caching
+responseOverrides:
+  404:
+    rewrite: /index.html
+    statusCode: 200
+
+globalHeaders:
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+cacheControlHeaders:
+  - path: "/*.{jpg,jpeg,png,gif,webp,svg,ico}"
+    header:
+      key: Cache-Control
+      value: public, max-age=31536000, immutable
+  
+  - path: "/*.{js,css}"
+    header:
+      key: Cache-Control
+      value: public, max-age=86400
+
+mimeTypes:
+  - path: "/*.json"
+    key: Content-Type
+    value: application/json

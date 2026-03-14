@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const logos = ["TechCorp", "InnovateLab", "DataFlow", "CloudSync", "Quantum AI", "NextGen"];
+const logos = ["OYe College", "RBS Tours & Travels", "Dry Fruits Delight", "TechCorp", "InnovateLab"];
 
 const TrustedBySection = () => {
   return (

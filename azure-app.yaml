@@ -1,0 +1,10 @@
+engine: enabled
+type: nodejs
+plan: FREE
+build:
+  src: .
+  dst: dist
+  command: npm install && npm run build
+start:
+  command: npx serve -s dist -l $WEBSITE_PORT
+  only: true

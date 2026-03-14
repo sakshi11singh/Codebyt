@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
-import { Send, Mail, Phone, MapPin } from "lucide-react";
+import { Send, Mail, Phone, MapPin, Calendar, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 
 const ContactFormSection = () => {
@@ -72,6 +72,22 @@ const ContactFormSection = () => {
                   <span className="text-sm">{text}</span>
                 </div>
               ))}
+            </div>
+            
+            <div className="mt-8 pt-8 border-t border-border/30">
+              <h3 className="font-heading font-semibold text-foreground mb-4">Want to talk immediately?</h3>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button variant="hero" asChild>
+                  <a href="https://calendly.com/" target="_blank" rel="noopener noreferrer">
+                    <Calendar size={16} className="mr-2" /> Book a Discovery Call
+                  </a>
+                </Button>
+                <Button variant="outline" className="border-green-500/20 text-green-500 hover:bg-green-500/10 hover:text-green-400" asChild>
+                  <a href="https://wa.me/919718417771?text=Hi!%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer">
+                    <MessageCircle size={16} className="mr-2" /> WhatsApp Us
+                  </a>
+                </Button>
+              </div>
             </div>
           </motion.div>
 

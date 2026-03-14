@@ -5,12 +5,10 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ExternalLink } from "lucide-react";
 
 const projects = [
-  { title: "DataFlow Analytics Platform", category: "SaaS / Cloud", desc: "Built a real-time analytics dashboard handling 10M+ events/day. Reduced data processing time by 80%.", tech: ["React", "Node.js", "AWS", "PostgreSQL"] },
-  { title: "InnovateLab Mobile App", category: "Mobile / AI", desc: "Cross-platform mobile app with AI-powered recommendations, serving 500K+ active users.", tech: ["React Native", "Python", "TensorFlow", "Firebase"] },
-  { title: "CloudSync Enterprise Suite", category: "Enterprise Software", desc: "End-to-end enterprise resource management platform with role-based access and real-time collaboration.", tech: ["TypeScript", "GraphQL", "Docker", "Redis"] },
-  { title: "Quantum AI Research Portal", category: "Web Application", desc: "Interactive research portal with real-time data visualization and collaborative annotation tools.", tech: ["Next.js", "D3.js", "Python", "Kubernetes"] },
-  { title: "NextGen E-commerce Platform", category: "E-commerce", desc: "Headless commerce platform with personalized shopping experiences and 99.99% uptime.", tech: ["React", "Stripe", "Elasticsearch", "AWS"] },
-  { title: "TechCorp Brand Redesign", category: "UI/UX Design", desc: "Complete brand identity and website redesign resulting in 200% increase in lead generation.", tech: ["Figma", "React", "Tailwind CSS", "Framer Motion"] },
+  { slug: "oye-college", title: "OYe College E-Learning", category: "EdTech Platform", desc: "Built an exceptional online learning platform serving over 10,000 students across India. Increased student engagement by 200%.", tech: ["Next.js", "Node.js", "AWS", "PostgreSQL", "Redis"] },
+  { slug: "rbs-tours", title: "RBS Tours Automation", category: "Travel Software", desc: "Automated a legacy travel booking system. Increased customer bookings by 150% and expanded to 50+ destinations seamlessly.", tech: ["React", "Python", "GraphQL", "Docker"] },
+  { slug: "dry-fruits-delight", title: "Dry Fruits Delight", category: "E-Commerce", desc: "Headless commerce platform processing over 50,000 orders with a 99.9% uptime and outstanding customer satisfaction.", tech: ["Next.js", "Stripe", "TailwindCSS", "AWS"] },
+  { slug: "innovatelab-ai", title: "InnovateLab AI Tools", category: "Mobile / AI", desc: "Cross-platform mobile app with AI-powered recommendations, serving 500K+ active users globally.", tech: ["React Native", "TensorFlow", "Firebase"] },
 ];
 
 const Portfolio = () => {
@@ -41,10 +39,10 @@ const Portfolio = () => {
               transition={{ delay: i * 0.05 }}
               className="glass-card rounded-2xl overflow-hidden group hover:border-primary/40 hover:-translate-y-1 hover:shadow-glow transition-all duration-500 border border-border/50"
             >
-              <div className="h-48 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center relative overflow-hidden group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500">
+              <Link to={`/portfolio/${project.slug}`} className="block h-48 bg-gradient-to-br from-primary/10 to-accent/10 flex flex-col items-center justify-center relative overflow-hidden group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500 cursor-pointer">
                 <div className="absolute inset-0 bg-white/[0.01] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <ExternalLink className="h-10 w-10 text-primary/40 group-hover:text-primary group-hover:scale-110 transition-all duration-500 relative z-10" />
-              </div>
+              </Link>
               <div className="p-8">
                 <span className="text-xs text-primary font-bold uppercase tracking-wider">{project.category}</span>
                 <h3 className="font-heading text-xl font-bold text-foreground mt-2 mb-3 tracking-wide">{project.title}</h3>
