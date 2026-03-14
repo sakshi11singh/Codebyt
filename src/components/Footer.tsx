@@ -40,7 +40,14 @@ const Footer = () => {
           <div>
             <h4 className="font-heading font-semibold text-foreground mb-4">Get in Touch</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Codebytdigital@gmail.com</li>
+              <li>
+                <a 
+                  href="mailto:Codebytdigital@gmail.com" 
+                  className="hover:text-primary transition-colors"
+                >
+                  Codebytdigital@gmail.com
+                </a>
+              </li>
               <li>+91 97184 17771</li>
               <li>+91 99250 97911</li>
               <li>India</li>

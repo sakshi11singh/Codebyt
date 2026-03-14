@@ -60,16 +60,22 @@ const ContactFormSection = () => {
 
             <div className="space-y-4">
               {[
-                { icon: Mail, text: "Codebytdigital@gmail.com" },
-                { icon: Phone, text: "+91 97184 17771" },
-                { icon: Phone, text: "+91 99250 97911" },
+                { icon: Mail, text: "Codebytdigital@gmail.com", href: "mailto:Codebytdigital@gmail.com" },
+                { icon: Phone, text: "+91 97184 17771", href: "tel:+919718417771" },
+                { icon: Phone, text: "+91 99250 97911", href: "tel:+919925097911" },
                 { icon: MapPin, text: "India" },
-              ].map(({ icon: Icon, text }) => (
+              ].map(({ icon: Icon, text, href }) => (
                 <div key={text} className="flex items-center gap-3 text-muted-foreground">
                   <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <Icon className="h-4 w-4 text-primary" />
                   </div>
-                  <span className="text-sm">{text}</span>
+                  {href ? (
+                    <a href={href} className="text-sm hover:text-primary transition-colors">
+                      {text}
+                    </a>
+                  ) : (
+                    <span className="text-sm">{text}</span>
+                  )}
                 </div>
               ))}
             </div>
