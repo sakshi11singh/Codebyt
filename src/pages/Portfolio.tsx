@@ -18,13 +18,13 @@ const Portfolio = () => {
     <Layout>
       <section className="section-padding pt-32">
         <div className="container-tight text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <span className="text-sm text-primary font-medium uppercase tracking-wider">Portfolio</span>
-            <h1 className="font-heading text-4xl md:text-6xl font-bold mt-3 mb-6">
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
+            <span className="text-sm text-primary font-bold uppercase tracking-[0.2em]">Our Selected Cases</span>
+            <h1 className="font-heading text-4xl md:text-7xl font-extrabold mt-4 mb-6 tracking-tight drop-shadow-sm">
               Our <span className="gradient-text">Best Work</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A selection of projects that showcase our capabilities across industries and technologies.
+            <p className="text-lg md:text-xl text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
+              Explore how we've engineered scalable solutions and transformative digital experiences for industry leaders.
             </p>
           </motion.div>
         </div>
@@ -39,18 +39,19 @@ const Portfolio = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="glass-card rounded-xl overflow-hidden group"
+              className="glass-card rounded-2xl overflow-hidden group hover:border-primary/40 hover:-translate-y-1 hover:shadow-glow transition-all duration-500 border border-border/50"
             >
-              <div className="h-48 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                <ExternalLink className="h-8 w-8 text-primary/30 group-hover:text-primary/60 transition-colors" />
+              <div className="h-48 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center relative overflow-hidden group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-500">
+                <div className="absolute inset-0 bg-white/[0.01] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <ExternalLink className="h-10 w-10 text-primary/40 group-hover:text-primary group-hover:scale-110 transition-all duration-500 relative z-10" />
               </div>
-              <div className="p-6">
-                <span className="text-xs text-primary font-medium uppercase tracking-wider">{project.category}</span>
-                <h3 className="font-heading text-lg font-bold text-foreground mt-1 mb-2">{project.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{project.desc}</p>
+              <div className="p-8">
+                <span className="text-xs text-primary font-bold uppercase tracking-wider">{project.category}</span>
+                <h3 className="font-heading text-xl font-bold text-foreground mt-2 mb-3 tracking-wide">{project.title}</h3>
+                <p className="text-sm text-muted-foreground mb-6 leading-relaxed relative z-10">{project.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((t) => (
-                    <span key={t} className="text-xs rounded-full border border-border/50 bg-secondary/50 px-3 py-1 text-muted-foreground">{t}</span>
+                    <span key={t} className="text-xs rounded-full border border-border/40 bg-secondary/30 px-3 py-1 text-muted-foreground font-medium">{t}</span>
                   ))}
                 </div>
               </div>

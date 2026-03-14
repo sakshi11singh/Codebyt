@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
-import { Users, Target, Award, Globe } from "lucide-react";
+import { Users, Target, Award, Globe, Linkedin } from "lucide-react";
 
 const values = [
   { icon: Target, title: "Mission-Driven", desc: "Every project we take on is aligned with creating real business impact." },
@@ -10,10 +10,9 @@ const values = [
 ];
 
 const team = [
-  { name: "Alex Rivera", role: "CEO & Founder", bio: "15+ years in tech leadership" },
-  { name: "Priya Sharma", role: "CTO", bio: "Ex-Google, systems architecture expert" },
-  { name: "David Kim", role: "Head of Design", bio: "Award-winning UX designer" },
-  { name: "Maria Santos", role: "VP Engineering", bio: "Full-stack expert, open-source contributor" },
+  { name: "Harit Garg", role: "Co-founder", bio: "Visionary leader driving innovation", linkedin: "https://www.linkedin.com/in/harit-garg1707/", image: "/harit.jpeg" },
+  { name: "Mukesh Pal", role: "Co-founder & CTO", bio: "Technology architect and systems expert", linkedin: "https://www.linkedin.com/in/mukprabhakar/", image: "/mukesh img01.jpeg" },
+  { name: "Harshit", role: "Co-founder & CMO", bio: "Marketing strategist and growth driver", linkedin: "https://www.linkedin.com/in/harshit-prajapati-9723b6311/", image: "/harshit.jpg" },
 ];
 
 const About = () => {
@@ -22,14 +21,14 @@ const About = () => {
       {/* Hero */}
       <section className="section-padding pt-32">
         <div className="container-tight text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <span className="text-sm text-primary font-medium uppercase tracking-wider">About Us</span>
-            <h1 className="font-heading text-4xl md:text-6xl font-bold mt-3 mb-6">
-              Building the Future of <span className="gradient-text">Digital Innovation</span>
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
+            <span className="text-sm text-primary font-bold uppercase tracking-[0.2em]">Our Story</span>
+            <h1 className="font-heading text-4xl md:text-7xl font-extrabold mt-4 mb-6 tracking-tight drop-shadow-sm">
+              Building the Future of <br className="hidden md:block" />
+              <span className="gradient-text">Digital Innovation</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Founded in 2011, NexaByte has grown from a small development team into a full-service technology
-              company trusted by startups and enterprises alike.
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium">
+              Founded in 2011, CODEBYTE has grown from a specialized engineering team into a full-service technology powerhouse, trusted by ambitious startups and global enterprises.
             </p>
           </motion.div>
         </div>
@@ -54,13 +53,13 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass-card rounded-xl p-6 text-center"
+                className="glass-card rounded-2xl p-8 text-center border border-border/50 hover:border-primary/40 hover:-translate-y-1 hover:shadow-glow transition-all duration-500 group"
               >
-                <div className="mx-auto h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <v.icon className="h-6 w-6 text-primary" />
+                <div className="mx-auto h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-500">
+                  <v.icon className="h-7 w-7 text-primary group-hover:text-accent transition-colors" />
                 </div>
-                <h3 className="font-heading font-semibold text-foreground mb-2">{v.title}</h3>
-                <p className="text-sm text-muted-foreground">{v.desc}</p>
+                <h3 className="font-heading font-bold text-xl text-foreground mb-3">{v.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -86,16 +85,29 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass-card rounded-xl p-6 text-center"
+                className="glass-card rounded-2xl p-8 text-center hover:bg-white/[0.02] border border-border/50 hover:border-primary/40 hover:-translate-y-1 hover:shadow-glow transition-all duration-500 group"
               >
-                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-4 flex items-center justify-center">
-                  <span className="font-heading text-xl font-bold text-primary">
-                    {member.name.split(" ").map(n => n[0]).join("")}
-                  </span>
+                <div className="h-20 w-20 rounded-full mx-auto mb-6 overflow-hidden group-hover:scale-110 transition-all duration-500">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="h-full w-full object-cover bg-gradient-to-br from-primary/20 to-accent/20"
+                  />
                 </div>
-                <h3 className="font-heading font-semibold text-foreground">{member.name}</h3>
-                <p className="text-sm text-primary">{member.role}</p>
-                <p className="text-xs text-muted-foreground mt-1">{member.bio}</p>
+                <h3 className="font-heading font-bold text-xl text-foreground">{member.name}</h3>
+                <p className="text-sm font-medium text-primary mt-1 mb-3">{member.role}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{member.bio}</p>
+                {member.linkedin && (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                    <span>Connect on LinkedIn</span>
+                  </a>
+                )}
               </motion.div>
             ))}
           </div>

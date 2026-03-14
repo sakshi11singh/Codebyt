@@ -7,10 +7,10 @@ const HeroSection = () => {
   return (
     <section className="relative overflow-hidden section-padding min-h-[90vh] flex items-center">
       {/* Background effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-[30rem] h-[30rem] bg-primary/20 rounded-full blur-[128px] mix-blend-screen" />
+        <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-accent/20 rounded-full blur-[128px] mix-blend-screen" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
       </div>
 
       <div className="container-tight relative z-10">
@@ -31,17 +31,16 @@ const HeroSection = () => {
             <span>Now offering AI-powered solutions</span>
           </motion.div>
 
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
-            We Build Digital
+          <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6 drop-shadow-sm">
+            Transform Your
             <br />
-            <span className="gradient-text">Experiences That</span>
+            <span className="gradient-text">Digital Future</span>
             <br />
-            Drive Growth
+            With Next-Gen Tech
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-            From custom software to AI automation, we help ambitious companies
-            ship faster, scale smarter, and outperform the competition.
+            We architect scalable software, AI-driven automation, and premium digital experiences to accelerate your business growth. Join the innovators.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -60,16 +59,16 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="mt-16 grid grid-cols-3 gap-8 max-w-lg mx-auto"
+            className="mt-16 grid grid-cols-3 gap-6 max-w-3xl mx-auto glass-card rounded-2xl p-6"
           >
             {[
-              { value: "200+", label: "Projects Delivered" },
-              { value: "98%", label: "Client Satisfaction" },
-              { value: "15+", label: "Years Experience" },
+              { value: "10+", label: "Transformations Delivered" },
+              { value: "99%", label: "Client Satisfaction" },
+              { value: "3+", label: "Years of Excellence" },
             ].map((stat) => (
-              <div key={stat.label}>
-                <div className="font-heading text-2xl md:text-3xl font-bold gradient-text">{stat.value}</div>
-                <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
+              <div key={stat.label} className="flex flex-col items-center justify-center p-4">
+                <div className="font-heading text-3xl md:text-5xl font-bold gradient-text drop-shadow-sm">{stat.value}</div>
+                <div className="text-sm text-foreground/80 mt-2 font-medium text-center">{stat.label}</div>
               </div>
             ))}
           </motion.div>

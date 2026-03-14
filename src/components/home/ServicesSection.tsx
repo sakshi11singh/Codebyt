@@ -3,14 +3,14 @@ import { Code, Smartphone, Brain, Cloud, Palette, BarChart3, Globe, Zap } from "
 import { Link } from "react-router-dom";
 
 const services = [
-  { icon: Globe, title: "Website Development", desc: "High-performance websites and web applications built with modern frameworks." },
-  { icon: Code, title: "Custom Software", desc: "Tailored software solutions that automate workflows and drive efficiency." },
-  { icon: Smartphone, title: "Mobile Apps", desc: "Native and cross-platform mobile apps that users love." },
-  { icon: Brain, title: "AI & Automation", desc: "Intelligent solutions powered by machine learning and automation." },
-  { icon: Cloud, title: "Cloud & SaaS", desc: "Scalable cloud architectures and SaaS platforms built to grow." },
-  { icon: Palette, title: "UI/UX Design", desc: "User-centered design that converts visitors into customers." },
-  { icon: BarChart3, title: "Digital Marketing", desc: "Data-driven strategies that increase visibility and revenue." },
-  { icon: Zap, title: "SEO Optimization", desc: "Technical and content SEO to dominate search rankings." },
+  { icon: Globe, title: "Web Experiences", desc: "Fast, accessible, and high-converting websites built on cutting-edge stacks." },
+  { icon: Code, title: "Custom Engineering", desc: "Complex web applications and internal tools that streamline operations." },
+  { icon: Smartphone, title: "Mobile Ecosystems", desc: "Native-quality mobile apps for iOS and Android that engage users." },
+  { icon: Brain, title: "AI Integration", desc: "Smart algorithms, LLM integrations, and intelligent automation." },
+  { icon: Cloud, title: "Cloud Architecture", desc: "Serverless setups, smooth migrations, and resilient infrastructure." },
+  { icon: Palette, title: "Experience Design", desc: "User journeys that delight and interfaces that convert flawlessly." },
+  { icon: BarChart3, title: "Growth Marketing", desc: "Data-backed campaigns to scale your user base and MRR." },
+  { icon: Zap, title: "Performance SEO", desc: "Dominate search with robust technical and content optimization." },
 ];
 
 const ServicesSection = () => {
@@ -23,12 +23,12 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-sm text-primary font-medium uppercase tracking-wider">Our Services</span>
-          <h2 className="font-heading text-3xl md:text-5xl font-bold mt-3 mb-4">
-            Everything You Need to <span className="gradient-text">Scale</span>
+          <span className="text-sm text-primary font-bold uppercase tracking-[0.2em]">Expertise</span>
+          <h2 className="font-heading text-3xl md:text-6xl font-extrabold mt-4 mb-6">
+            Everything You Need to <span className="gradient-text">Dominate</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            End-to-end technology services designed to transform your business and accelerate growth.
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            We bring together engineering, design, and strategy to build solutions that outpace the competition.
           </p>
         </motion.div>
 
@@ -43,11 +43,12 @@ const ServicesSection = () => {
             >
               <Link
                 to="/services"
-                className="glass-card group block rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
+                className="glass-card group block relative overflow-hidden rounded-2xl p-8 border border-border/50 hover:border-primary/50 hover:shadow-glow hover:-translate-y-1 hover:bg-white/[0.02] transition-all duration-500 will-change-transform"
               >
-                <service.icon className="h-8 w-8 text-primary mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="font-heading font-semibold text-foreground mb-2">{service.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{service.desc}</p>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <service.icon className="h-10 w-10 text-primary mb-6 group-hover:scale-110 group-hover:text-accent transition-all duration-500" />
+                <h3 className="font-heading font-bold text-xl text-foreground mb-3">{service.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed relative z-10">{service.desc}</p>
               </Link>
             </motion.div>
           ))}

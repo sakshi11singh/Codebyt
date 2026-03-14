@@ -3,22 +3,25 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "NexaByte transformed our entire digital presence. Revenue increased 150% within six months of launching the new platform.",
-    name: "Sarah Chen",
-    role: "CEO, DataFlow",
+    quote: "CODEBYTE built an exceptional online learning platform for us. Student engagement increased by 200% and we now serve over 10,000 students across India.",
+    name: "Shivam Gupta",
+    role: "Founder, OYe College",
     stars: 5,
+    company: "OYe College",
   },
   {
-    quote: "Their AI automation solution saved us over 2,000 hours per month. The ROI was visible from day one.",
-    name: "Marcus Johnson",
-    role: "CTO, InnovateLab",
+    quote: "Our travel booking system is now fully automated. Customer bookings increased by 150% and we've expanded to 50+ destinations seamlessly.",
+    name: "Krishkant Bhardwaj",
+    role: "Owner, RBS TOURS AND TRAVELS",
     stars: 5,
+    company: "RBS TOURS AND TRAVELS",
   },
   {
-    quote: "The most responsive and technically skilled team we've ever worked with. They feel like an extension of our own company.",
-    name: "Emily Rodriguez",
-    role: "VP Product, CloudSync",
+    quote: "The e-commerce platform CODEBYTE developed for us has been phenomenal. We've processed over 50,000 orders with 99.9% uptime and outstanding customer satisfaction.",
+    name: "Priya Mehta",
+    role: "CEO, Dry Fruits Delight",
     stars: 5,
+    company: "Dry Fruits Delight",
   },
 ];
 
@@ -46,17 +49,21 @@ const TestimonialsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="glass-card rounded-xl p-6 flex flex-col"
+              className="glass-card rounded-2xl p-8 flex flex-col h-full border border-border/50 hover:border-primary/40 hover:-translate-y-1 hover:shadow-glow relative overflow-hidden group transition-all duration-500"
             >
-              <div className="flex gap-1 mb-4">
+              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <Star size={64} className="fill-primary text-primary" />
+              </div>
+              <div className="flex gap-1 mb-6 relative z-10">
                 {Array.from({ length: t.stars }).map((_, j) => (
-                  <Star key={j} size={14} className="fill-accent text-accent" />
+                  <Star key={j} size={16} className="fill-accent text-accent" />
                 ))}
               </div>
-              <p className="text-foreground/90 leading-relaxed flex-1 mb-6">"{t.quote}"</p>
-              <div>
-                <div className="font-heading font-semibold text-foreground text-sm">{t.name}</div>
-                <div className="text-xs text-muted-foreground">{t.role}</div>
+              <p className="text-foreground/90 leading-relaxed flex-1 mb-6 text-base relative z-10 italic">"{t.quote}"</p>
+              <div className="border-t border-border/50 pt-6 mt-auto relative z-10">
+                <div className="font-heading font-bold text-foreground text-lg tracking-wide">{t.name}</div>
+                <div className="text-sm text-primary font-medium">{t.role}</div>
+                <div className="text-xs text-muted-foreground mt-1">{t.company}</div>
               </div>
             </motion.div>
           ))}

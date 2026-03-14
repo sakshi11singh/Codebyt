@@ -14,10 +14,11 @@ const Contact = () => {
     <Layout>
       <section className="section-padding pt-32">
         <div className="container-tight text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <span className="text-sm text-primary font-medium uppercase tracking-wider">Get in Touch</span>
-            <h1 className="font-heading text-4xl md:text-6xl font-bold mt-3 mb-6">
-              Let's Build Something <span className="gradient-text">Great Together</span>
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
+            <span className="text-sm text-primary font-bold uppercase tracking-[0.2em]">Get in Touch</span>
+            <h1 className="font-heading text-4xl md:text-7xl font-extrabold mt-4 mb-6 tracking-tight drop-shadow-sm">
+              Let's Build Something <br className="hidden md:block" />
+              <span className="gradient-text">Great Together</span>
             </h1>
           </motion.div>
         </div>
@@ -39,10 +40,10 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass-card rounded-xl p-6"
+                className="glass-card rounded-2xl p-8 hover:bg-white/[0.02] hover:-translate-y-1 hover:border-primary/30 transition-all duration-300"
               >
-                <h3 className="font-heading font-semibold text-foreground mb-2">{faq.q}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                <h3 className="font-heading font-bold text-lg text-foreground mb-3">{faq.q}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed text-base">{faq.a}</p>
               </motion.div>
             ))}
           </div>

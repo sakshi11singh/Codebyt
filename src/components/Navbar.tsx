@@ -9,7 +9,7 @@ const navLinks = [
   { label: "About", path: "/about" },
   { label: "Services", path: "/services" },
   { label: "Portfolio", path: "/portfolio" },
-  { label: "Blog", path: "/blog" },
+  { label: "Clients", path: "/clients" },
   { label: "Contact", path: "/contact" },
 ];
 
@@ -21,8 +21,8 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container-tight flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-accent" />
-          <span className="font-heading text-xl font-bold text-foreground">NexaByte</span>
+          <img src="/logo.jpg" alt="CODEBYTE Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
+          <span className="font-heading text-xl font-bold text-foreground">CODEBYTE</span>
         </Link>
 
         {/* Desktop */}

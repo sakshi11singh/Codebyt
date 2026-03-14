@@ -33,13 +33,14 @@ const ProcessSection = () => {
               transition={{ delay: i * 0.1 }}
               className="relative"
             >
-              <div className="glass-card rounded-xl p-6">
-                <span className="font-heading text-4xl font-bold text-primary/20">{step.num}</span>
-                <h3 className="font-heading text-lg font-semibold text-foreground mt-2 mb-2">{step.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+              <div className="glass-card rounded-2xl p-8 relative overflow-hidden group hover:bg-white/[0.02] hover:border-primary/30 hover:-translate-y-1 hover:shadow-glow transition-all duration-500">
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-500" />
+                <span className="font-heading text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-primary/40 to-primary/10 group-hover:from-primary group-hover:to-accent transition-all duration-500">{step.num}</span>
+                <h3 className="font-heading text-xl font-bold text-foreground mt-4 mb-3">{step.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed relative z-10">{step.desc}</p>
               </div>
               {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-primary/20" />
+                <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-[2px] bg-gradient-to-r from-primary/20 to-primary/60 rounded-full" />
               )}
             </motion.div>
           ))}

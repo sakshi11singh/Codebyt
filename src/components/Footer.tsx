@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -7,8 +8,8 @@ const Footer = () => {
         <div className="grid gap-12 md:grid-cols-4">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-accent" />
-              <span className="font-heading text-xl font-bold text-foreground">NexaByte</span>
+              <img src="/logo.jpg" alt="CODEBYTE Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
+              <span className="font-heading text-xl font-bold text-foreground">CODEBYTE</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Transforming businesses through innovative technology solutions and digital excellence.
@@ -30,8 +31,8 @@ const Footer = () => {
             <h4 className="font-heading font-semibold text-foreground mb-4">Company</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link to="/clients" className="hover:text-primary transition-colors">Clients</Link></li>
               <li><Link to="/portfolio" className="hover:text-primary transition-colors">Portfolio</Link></li>
-              <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
               <li><Link to="/contact" className="hover:text-primary transition-colors">Careers</Link></li>
             </ul>
           </div>
@@ -39,15 +40,28 @@ const Footer = () => {
           <div>
             <h4 className="font-heading font-semibold text-foreground mb-4">Get in Touch</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>hello@nexabyte.com</li>
-              <li>+1 (555) 123-4567</li>
-              <li>San Francisco, CA</li>
+              <li>Codebytdigital@gmail.com</li>
+              <li>+91 97184 17771</li>
+              <li>+91 99250 97911</li>
+              <li>India</li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 border-t border-border/50 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">© 2026 NexaByte. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">© 2026 CODEBYTE. All rights reserved.</p>
+          <div className="flex flex-col md:flex-row items-center gap-4 text-xs text-muted-foreground">
+            <span>Made with ❤️ by </span>
+            <a
+              href="https://www.linkedin.com/in/mukprabhakar/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 hover:text-primary transition-colors font-medium"
+            >
+              Mukesh Pal
+              <Linkedin className="h-3 w-3" />
+            </a>
+          </div>
           <div className="flex gap-6 text-xs text-muted-foreground">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>

@@ -8,14 +8,37 @@ import { toast } from "sonner";
 
 const ContactFormSection = () => {
   const [loading, setLoading] = useState(false);
+  const FORMSPREE_URL = "https://formspree.io/f/maqpbrbk";
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        toast.success("Message sent! We'll get back to you within 24 hours.");
+        e.currentTarget.reset();
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.errors?.map((e: any) => e.message).join(', ') || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Network error. Please check your connection and try again.");
+    } finally {
       setLoading(false);
-      toast.success("Message sent! We'll get back to you within 24 hours.");
-    }, 1000);
+    }
   };
 
   return (
@@ -37,9 +60,10 @@ const ContactFormSection = () => {
 
             <div className="space-y-4">
               {[
-                { icon: Mail, text: "hello@nexabyte.com" },
-                { icon: Phone, text: "+1 (555) 123-4567" },
-                { icon: MapPin, text: "San Francisco, CA" },
+                { icon: Mail, text: "Codebytdigital@gmail.com" },
+                { icon: Phone, text: "+91 97184 17771" },
+                { icon: Phone, text: "+91 99250 97911" },
+                { icon: MapPin, text: "India" },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-3 text-muted-foreground">
                   <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -57,14 +81,16 @@ const ContactFormSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="glass-card rounded-xl p-6 md:p-8 space-y-4"
+            action={FORMSPREE_URL}
+            method="POST"
           >
             <div className="grid sm:grid-cols-2 gap-4">
-              <Input placeholder="Your Name" required className="bg-background/50 border-border/50" />
-              <Input placeholder="Email Address" type="email" required className="bg-background/50 border-border/50" />
+              <Input name="name" placeholder="Your Name" required className="bg-background/50 border-border/50" />
+              <Input name="email" placeholder="Email Address" type="email" required className="bg-background/50 border-border/50" />
             </div>
-            <Input placeholder="Company (optional)" className="bg-background/50 border-border/50" />
-            <Input placeholder="Project Budget (optional)" className="bg-background/50 border-border/50" />
-            <Textarea placeholder="Tell us about your project..." rows={5} required className="bg-background/50 border-border/50 resize-none" />
+            <Input name="company" placeholder="Company (optional)" className="bg-background/50 border-border/50" />
+            <Input name="budget" placeholder="Project Budget (optional)" className="bg-background/50 border-border/50" />
+            <Textarea name="message" placeholder="Tell us about your project..." rows={5} required className="bg-background/50 border-border/50 resize-none" />
             <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
               {loading ? "Sending..." : <>Send Message <Send size={16} /></>}
             </Button>

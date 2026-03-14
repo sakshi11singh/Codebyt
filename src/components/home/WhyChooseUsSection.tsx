@@ -18,7 +18,7 @@ const WhyChooseUsSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-sm text-primary font-medium uppercase tracking-wider">Why NexaByte</span>
+            <span className="text-sm text-primary font-medium uppercase tracking-wider">Why CODEBYTE</span>
             <h2 className="font-heading text-3xl md:text-4xl font-bold mt-3 mb-6">
               Built by Engineers,<br />
               <span className="gradient-text">Driven by Results</span>
@@ -35,14 +35,14 @@ const WhyChooseUsSection = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="flex gap-4"
+                  className="flex gap-4 p-4 rounded-2xl hover:bg-white/[0.03] hover:border hover:border-primary/20 transition-all duration-300 border border-transparent cursor-default group"
                 >
-                  <div className="flex-shrink-0 h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <b.icon className="h-5 w-5 text-primary" />
+                  <div className="flex-shrink-0 h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                    <b.icon className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-heading font-semibold text-foreground">{b.title}</h3>
-                    <p className="text-sm text-muted-foreground">{b.desc}</p>
+                    <h3 className="font-heading font-bold text-lg text-foreground">{b.title}</h3>
+                    <p className="text-sm text-muted-foreground mt-1">{b.desc}</p>
                   </div>
                 </motion.div>
               ))}

@@ -1,26 +1,14 @@
-# Welcome to your Lovable project
+# Welcome to CODEBYTE
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+This is a full-service digital agency website built with modern web technologies.
 
 ## How can I edit this code?
 
-There are several ways of editing your application.
+You can edit this application using your preferred IDE.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+To work locally, follow these steps:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
@@ -32,7 +20,7 @@ cd <YOUR_PROJECT_NAME>
 # Step 3: Install the necessary dependencies.
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Start the development server with auto-reloading.
 npm run dev
 ```
 
@@ -62,12 +50,9 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+You can deploy this project using various methods:
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+1. **Build for production**: Run `npm run build` and deploy the contents of the `dist` folder
+2. **Use Vercel**: Connect your GitHub repository to Vercel for automatic deployments
+3. **Use Netlify**: Deploy using Netlify's drag-and-drop or Git integration
+4. **Use any static host**: Upload the built files to any hosting service that supports static sites
