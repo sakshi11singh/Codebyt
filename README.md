@@ -156,7 +156,9 @@ npm run lint
 
 ### Deploy to Azure (Recommended)
 
-#### Quick Deploy with Script
+Your project is **fully configured** for Azure deployment with automated scripts and comprehensive documentation.
+
+#### ⚡ Quick Deploy (Under 10 Minutes)
 
 **Windows:**
 ```bash
@@ -169,15 +171,29 @@ chmod +x deploy-azure.sh
 ./deploy-azure.sh
 ```
 
-#### Manual Deploy to Azure Static Web Apps
+#### 📋 Prerequisites
 
-1. **Install Azure CLI and login:**
+- Azure Account (create free at https://azure.microsoft.com/free)
+- Azure CLI installed (`az --version`)
+- Node.js 18+
+- Git installed
+
+#### 🔧 Manual Deployment to Azure Static Web Apps
+
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Build for production
+npm run build
+
+# 3. Login to Azure
 az login
-```
 
-2. **Create Static Web App:**
-```bash
+# 4. Install Static Web Apps extension
+az extension add --name staticwebapp
+
+# 5. Deploy
 az staticwebapp create \
   --name codebyte-website \
   --resource-group codebyte-rg \
@@ -188,16 +204,125 @@ az staticwebapp create \
   --output-location "dist"
 ```
 
-3. **Configuration files are already set up:**
-   - `staticwebapp.config.json` - Routing, headers, caching
-   - `web.config` - IIS configuration for Windows hosting
-   - `azure-app.yaml` - App Service configuration
+#### 📁 Configuration Files
 
-#### Other Azure Options
+All Azure configuration is already set up:
 
-- **Azure App Service**: Full control, custom domains, scaling
-- **Azure Storage**: Simple static website hosting
-- See `AZURE_DEPLOYMENT_GUIDE.md` for detailed instructions
+- **`staticwebapp.config.json`** - SPA routing, security headers, caching policies
+- **`web.config`** - IIS configuration for Windows hosting
+- **`azure-app.yaml`** - App Service configuration
+- **`deployment.json`** - Deployment metadata
+
+#### 💰 Cost Estimate
+
+**Azure Static Web Apps (Free Tier):**
+- ✅ FREE for personal projects
+- ✅ Includes SSL certificate
+- ✅ Automatic deployments from Git
+- ✅ Custom domains supported
+- ❌ Limited to 3 environments
+
+**Azure App Service (B1 Basic):** ~$13/month
+- More control and flexibility
+- Auto-scaling, deployment slots
+
+#### ✅ Post-Deployment Checklist
+
+After deployment, verify:
+
+- [ ] Site loads without errors
+- [ ] All pages accessible (/, /about, /services, /portfolio, /clients, /contact)
+- [ ] Images load properly
+- [ ] Contact form works
+- [ ] Mobile responsive design works
+- [ ] No console errors
+- [ ] HTTPS enabled (green padlock)
+- [ ] Lighthouse score > 90
+
+#### 🔄 Other Deployment Methods
+
+**Azure App Service (More Control):**
+```bash
+# Create resource group
+az group create --name codebyte-rg --location eastus
+
+# Create App Service Plan
+az appservice plan create \
+  --name codebyte-plan \
+  --resource-group codebyte-rg \
+  --sku B1 \
+  --is-linux
+
+# Create Web App
+az webapp create \
+  --resource-group codebyte-rg \
+  --plan codebyte-plan \
+  --name codebyte-webapp \
+  --runtime "NODE|18-lts" \
+  --deployment-local-git
+
+# Configure and deploy
+az webapp config appsettings set \
+  --resource-group codebyte-rg \
+  --name codebyte-webapp \
+  --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+
+git remote add azure <DEPLOYMENT_URL>
+git push azure main
+```
+
+**Azure Storage (Low Cost):**
+1. Create Storage Account in Azure Portal
+2. Enable "Static website" in settings
+3. Upload contents of `dist` folder to `$web` container
+4. Access via provided endpoint URL
+
+#### 🆘 Troubleshooting
+
+**Build fails:**
+```bash
+# Clear cache and reinstall
+rm -rf node_modules package-lock.json
+npm install
+npm run build
+```
+
+**404 on page refresh:**
+- This is normal for SPAs
+- Ensure `staticwebapp.config.json` or `web.config` is present
+
+**Assets not loading:**
+- Check that all asset paths are relative
+- Verify build output in `dist/` folder
+
+#### 📊 Monitoring & Analytics
+
+Enable Application Insights:
+```bash
+az monitor app-insights component create \
+  --app codebyte-insights \
+  --location eastus \
+  --resource-group codebyte-rg \
+  --application-type web
+```
+
+#### 🎯 Next Steps After Deployment
+
+1. **Add Custom Domain** (Optional)
+   - Go to Azure Portal → Your Static Web App → Custom domains
+   - Configure DNS records
+   - SSL auto-provisioned
+
+2. **Set Up CI/CD** (Recommended)
+   - Connect GitHub repository
+   - Automatic deployments on push
+
+3. **Configure Environment Variables**
+   - Add API keys and secrets in Azure Portal
+
+4. **Performance Tuning**
+   - Enable CDN for global audience
+   - Configure caching headers
 
 ### Deploy to Other Platforms
 
