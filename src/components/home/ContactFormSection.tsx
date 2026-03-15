@@ -18,6 +18,9 @@ const ContactFormSection = () => {
     const data = Object.fromEntries(formData.entries());
 
     try {
+      console.log('Submitting form to:', FORMSPREE_URL);
+      console.log('Form data:', data);
+      
       const response = await fetch(FORMSPREE_URL, {
         method: 'POST',
         headers: {
@@ -27,15 +30,19 @@ const ContactFormSection = () => {
         body: JSON.stringify(data),
       });
 
+      console.log('Response status:', response.status);
+
       if (response.ok) {
         toast.success("Message sent! We'll get back to you within 24 hours.");
         e.currentTarget.reset();
       } else {
-        const errorData = await response.json();
+        const errorData = await response.json().catch(() => ({}));
+        console.error('Formspree error:', errorData);
         toast.error(errorData.errors?.map((e: any) => e.message).join(', ') || "Failed to send message. Please try again.");
       }
     } catch (error) {
-      toast.error("Network error. Please check your connection and try again.");
+      console.error('Network error:', error);
+      toast.error(`Network error: ${error instanceof Error ? error.message : "Please check your connection and try again."}`);
     } finally {
       setLoading(false);
     }
@@ -103,8 +110,6 @@ const ContactFormSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="glass-card rounded-xl p-6 md:p-8 space-y-4"
-            action={FORMSPREE_URL}
-            method="POST"
           >
             <div className="grid sm:grid-cols-2 gap-4">
               <Input name="name" placeholder="Your Name" required className="bg-background/50 border-border/50" />
