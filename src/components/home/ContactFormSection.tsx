@@ -56,12 +56,14 @@ const ContactFormSection = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="flex flex-col justify-center"
           >
-            <span className="text-sm text-primary font-medium uppercase tracking-wider">Contact Us</span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mt-3 mb-4">
-              Let's Start a <span className="gradient-text">Conversation</span>
+            <span className="text-sm text-primary font-bold uppercase tracking-[0.2em] mb-4 block">Contact Us</span>
+            <h2 className="font-heading text-4xl md:text-5xl font-extrabold mb-6 tracking-tight drop-shadow-sm">
+              Let's Start a <br className="hidden md:block" />
+              <span className="gradient-text">Conversation</span>
             </h2>
-            <p className="text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-lg text-muted-foreground mb-10 leading-relaxed font-medium">
               Have a project in mind? Fill out the form and our team will respond within 24 hours.
             </p>
 
@@ -109,17 +111,39 @@ const ContactFormSection = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-card rounded-xl p-6 md:p-8 space-y-4"
+            className="glass-card rounded-3xl p-8 md:p-10 space-y-6 border border-border/50 shadow-2xl relative overflow-hidden"
           >
-            <div className="grid sm:grid-cols-2 gap-4">
-              <Input name="name" placeholder="Your Name" required className="bg-background/50 border-border/50" />
-              <Input name="email" placeholder="Email Address" type="email" required className="bg-background/50 border-border/50" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />
+            
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground/80 ml-1">Full Name</label>
+                <Input name="name" placeholder="John Doe" required className="bg-background/40 border-border/40 focus:bg-background/80 focus:ring-2 focus:ring-primary/30 h-12 rounded-xl transition-all" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground/80 ml-1">Email Address</label>
+                <Input name="email" placeholder="john@example.com" type="email" required className="bg-background/40 border-border/40 focus:bg-background/80 focus:ring-2 focus:ring-primary/30 h-12 rounded-xl transition-all" />
+              </div>
             </div>
-            <Input name="company" placeholder="Company (optional)" className="bg-background/50 border-border/50" />
-            <Input name="budget" placeholder="Project Budget (optional)" className="bg-background/50 border-border/50" />
-            <Textarea name="message" placeholder="Tell us about your project..." rows={5} required className="bg-background/50 border-border/50 resize-none" />
-            <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
-              {loading ? "Sending..." : <>Send Message <Send size={16} /></>}
+            
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground/80 ml-1">Company (Optional)</label>
+                <Input name="company" placeholder="Example Inc." className="bg-background/40 border-border/40 focus:bg-background/80 focus:ring-2 focus:ring-primary/30 h-12 rounded-xl transition-all" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground/80 ml-1">Project Budget (Optional)</label>
+                <Input name="budget" placeholder="$10k - $50k" className="bg-background/40 border-border/40 focus:bg-background/80 focus:ring-2 focus:ring-primary/30 h-12 rounded-xl transition-all" />
+              </div>
+            </div>
+            
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-foreground/80 ml-1">Tell us about your project</label>
+              <Textarea name="message" placeholder="We are looking to build..." rows={5} required className="bg-background/40 border-border/40 focus:bg-background/80 focus:ring-2 focus:ring-primary/30 rounded-xl transition-all resize-none p-4" />
+            </div>
+            
+            <Button type="submit" variant="hero" size="lg" className="w-full rounded-xl h-14 text-base font-bold shadow-glow mt-2" disabled={loading}>
+              {loading ? "Sending..." : <>Send Message <Send size={18} className="ml-2" /></>}
             </Button>
           </motion.form>
         </div>
