@@ -95,7 +95,10 @@ const ContactFormSection = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   variant="hero" 
-                  onClick={() => openCalendlyPopup('https://calendly.com/codebyt/discovery-call')}
+                  onClick={() => {
+                    console.log('Opening Calendly popup...');
+                    openCalendlyPopup('https://calendly.com/mukprabhakar/30min');
+                  }}
                   className="cursor-pointer"
                 >
                   <Calendar size={16} className="mr-2" /> Book a Discovery Call
