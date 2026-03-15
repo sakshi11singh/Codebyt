@@ -18,7 +18,7 @@ const WhyChooseUsSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-sm text-primary font-medium uppercase tracking-wider">Why CODEBYTE</span>
+            <span className="text-sm text-primary font-medium uppercase tracking-wider">Why CODEBYT</span>
             <h2 className="font-heading text-3xl md:text-4xl font-bold mt-3 mb-6">
               Built by Engineers,<br />
               <span className="gradient-text">Driven by Results</span>

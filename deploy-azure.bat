@@ -1,9 +1,9 @@
 @echo off
-REM Azure Deployment Script for CODEBYTE (Windows PowerShell compatible)
+REM Azure Deployment Script for CODEBYT (Windows PowerShell compatible)
 REM This script automates the deployment process to Azure Static Web Apps
 
 echo ==========================================
-echo   CODEBYTE Azure Deployment Script
+echo   CODEBYT Azure Deployment Script
 echo ==========================================
 echo.
 

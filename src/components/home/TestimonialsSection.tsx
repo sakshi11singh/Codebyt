@@ -3,7 +3,7 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "CODEBYTE built an exceptional online learning platform for us. Student engagement increased by 200% and we now serve over 10,000 students across India.",
+    quote: "CODEBYT built an exceptional online learning platform for us. Student engagement increased by 200% and we now serve over 10,000 students across India.",
     name: "Shivam Gupta",
     role: "Founder, OYe College",
     stars: 5,
@@ -17,7 +17,7 @@ const testimonials = [
     company: "RBS TOURS AND TRAVELS",
   },
   {
-    quote: "The e-commerce platform CODEBYTE developed for us has been phenomenal. We've processed over 50,000 orders with 99.9% uptime and outstanding customer satisfaction.",
+    quote: "The e-commerce platform CODEBYT developed for us has been phenomenal. We've processed over 50,000 orders with 99.9% uptime and outstanding customer satisfaction.",
     name: "Priya Mehta",
     role: "CEO, Dry Fruits Delight",
     stars: 5,

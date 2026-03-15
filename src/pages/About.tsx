@@ -10,9 +10,9 @@ const values = [
 ];
 
 const team = [
-  { name: "Harit Garg", role: "Co-founder", bio: "Visionary leader driving innovation", linkedin: "https://www.linkedin.com/in/harit-garg1707/", image: "/harit.jpeg" },
+  { name: "Harit Garg", role: "Co-founder & CEO", bio: "Visionary leader driving innovation", linkedin: "https://www.linkedin.com/in/harit-garg1707/", image: "/harit.jpeg" },
   { name: "Mukesh Pal", role: "Co-founder & CTO", bio: "Technology architect and systems expert", linkedin: "https://www.linkedin.com/in/mukprabhakar/", image: "/mukesh img01.jpeg" },
-  { name: "Harshit", role: "Co-founder & CMO", bio: "Marketing strategist and growth driver", linkedin: "https://www.linkedin.com/in/harshit-prajapati-9723b6311/", image: "/harshit.jpg" },
+  { name: "Harshit", role: "Co-founder & CMO", bio: "Marketing strategist and growth driver", linkedin: "https://www.linkedin.com/in/harshit-prajapati-9723b6311/", image: "/harshit.jpeg" },
 ];
 
 const About = () => {
@@ -28,7 +28,7 @@ const About = () => {
               <span className="gradient-text">Digital Innovation</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium">
-              Founded in 2011, CODEBYTE has grown from a specialized engineering team into a full-service technology powerhouse, trusted by ambitious startups and global enterprises.
+              Founded in 2011, CODEBYT has grown from a specialized engineering team into a full-service technology powerhouse, trusted by ambitious startups and global enterprises.
             </p>
           </motion.div>
         </div>

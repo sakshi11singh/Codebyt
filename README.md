@@ -1,8 +1,8 @@
-# CODEBYTE - Digital Innovation Agency
+# CODEBYT - Digital Innovation Agency
 
-A modern, high-performance website for CODEBYTE, a full-service technology powerhouse specializing in digital transformation, AI solutions, and innovative software development.
+A modern, high-performance website for CODEBYT, a full-service technology powerhouse specializing in digital transformation, AI solutions, and innovative software development.
 
-![CODEBYTE](./public/logo.jpg)
+![CODEBYT](./public/logo.jpg)
 
 ## 🌟 Features
 
@@ -42,7 +42,7 @@ A modern, high-performance website for CODEBYTE, a full-service technology power
 ## 📂 Project Structure
 
 ```
-CODEBYTE/
+CODEBYT/
 ├── public/                 # Static assets
 │   ├── harit.jpeg         # Team member images
 │   ├── harshit.jpg
@@ -103,7 +103,7 @@ CODEBYTE/
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd Codebyte
+cd CODEBYT
 ```
 
 2. Install dependencies:
@@ -415,7 +415,7 @@ Reusable components built with Radix UI primitives and styled with Tailwind CSS:
 
 ## 📄 License
 
-This project is proprietary and confidential. All rights reserved © 2026 CODEBYTE.
+This project is proprietary and confidential. All rights reserved © 2026 CODEBYT.
 
 ---
 

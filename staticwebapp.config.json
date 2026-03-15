@@ -1,7 +1,7 @@
 # Azure Static Web Apps Configuration
 # Documentation: https://docs.microsoft.com/azure/static-web-apps/configuration
 
-name: CODEBYTE Production
+name: CODEBYT Production
 appBuildCommand: npm run build
 appLocation: "/"
 appArtifactLocation: "dist"

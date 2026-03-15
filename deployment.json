@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/deployment.json",
-  "name": "CODEBYTE Website",
+  "name": "CODEBYT Website",
   "version": "1.0.0",
   "description": "Digital Innovation Agency - Full-service technology powerhouse",
   "scripts": {

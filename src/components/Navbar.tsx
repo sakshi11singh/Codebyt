@@ -21,8 +21,8 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container-tight flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
-          <img src="/logo.jpg" alt="CODEBYTE Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
-          <span className="font-heading text-xl font-bold text-foreground">CODEBYTE</span>
+          <img src="/logo.jpg" alt="CODEBYT Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
+          <span className="font-heading text-xl font-bold text-foreground">CODEBYT</span>
         </Link>
 
         {/* Desktop */}

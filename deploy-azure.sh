@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Azure Deployment Script for CODEBYTE
+# Azure Deployment Script for CODEBYT
 # This script automates the deployment process to Azure Static Web Apps
 
 set -e  # Exit on error
 
-echo "🚀 Starting Azure Deployment for CODEBYTE..."
+echo "🚀 Starting Azure Deployment for CODEBYT...""
 
 # Configuration
 RESOURCE_GROUP="codebyte-rg"
@@ -108,7 +108,7 @@ deploy_to_azure() {
 main() {
     echo ""
     echo "=========================================="
-    echo "  CODEBYTE Azure Deployment Script"
+    echo "  CODEBYT Azure Deployment Script"
     echo "=========================================="
     echo ""
     

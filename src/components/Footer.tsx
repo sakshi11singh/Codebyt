@@ -8,8 +8,8 @@ const Footer = () => {
         <div className="grid gap-12 md:grid-cols-4">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <img src="/logo.jpg" alt="CODEBYTE Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
-              <span className="font-heading text-xl font-bold text-foreground">CODEBYTE</span>
+              <img src="/logo.jpg" alt="CODEBYT Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
+              <span className="font-heading text-xl font-bold text-foreground">CODEBYT</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Transforming businesses through innovative technology solutions and digital excellence.
@@ -56,7 +56,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 border-t border-border/50 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">© 2026 CODEBYTE. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">© 2026 CODEBYT. All rights reserved.</p>
           <div className="flex flex-col md:flex-row items-center gap-4 text-xs text-muted-foreground">
             <span>Made with ❤️ by </span>
             <a
