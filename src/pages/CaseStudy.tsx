@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, ExternalLink, CheckCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, CheckCircle, Globe } from "lucide-react";
 import NotFound from "./NotFound";
 
 type CaseStudyData = {
@@ -17,6 +17,7 @@ type CaseStudyData = {
   solution: string;
   results: string[];
   tech: string[];
+  website?: string;
 };
 
 const caseStudies: Record<string, CaseStudyData> = {
@@ -40,7 +41,8 @@ const caseStudies: Record<string, CaseStudyData> = {
       "Reduced server costs by 40% through optimized content delivery networks.",
       "Implemented a secure, highly scalable microservices architecture."
     ],
-    tech: ["Next.js", "Node.js", "AWS", "PostgreSQL", "Redis", "WebSockets"]
+    tech: ["Next.js", "Node.js", "AWS", "PostgreSQL", "Redis", "WebSockets"],
+    website: "https://oyecollege.com/"
   },
   "rbs-tours": {
     slug: "rbs-tours",
@@ -62,7 +64,8 @@ const caseStudies: Record<string, CaseStudyData> = {
       "Eliminated all double-booking errors through transactional database logic.",
       "Expanded seamlessly into 50+ new travel destinations."
     ],
-    tech: ["React", "Python", "GraphQL", "Docker", "PostgreSQL"]
+    tech: ["React", "Python", "GraphQL", "Docker", "PostgreSQL"],
+    website: "https://rbstourandtravels.in/"
   },
   "dry-fruits-delight": {
     slug: "dry-fruits-delight",
@@ -84,7 +87,8 @@ const caseStudies: Record<string, CaseStudyData> = {
       "Achieved a 99.9% uptime during peak holiday traffic spikes.",
       "Increased overall conversion rate by 35%."
     ],
-    tech: ["Next.js", "Stripe", "TailwindCSS", "AWS", "Vercel"]
+    tech: ["Next.js", "Stripe", "TailwindCSS", "AWS", "Vercel"],
+    website: "https://www.dryfruitsdelight.com/"
   }
 };
 
@@ -189,13 +193,25 @@ const CaseStudy = () => {
                 </p>
                 <div className="pt-6 border-t border-border/50">
                   <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-4">Technology Stack</h4>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {data.tech.map((t) => (
                       <span key={t} className="px-3 py-1.5 rounded-full bg-secondary/50 border border-border/50 text-xs font-medium text-muted-foreground">
                         {t}
                       </span>
                     ))}
                   </div>
+                  {data.website && (
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="w-full border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground" 
+                      asChild
+                    >
+                      <a href={data.website} target="_blank" rel="noopener noreferrer">
+                        Visit Site <Globe className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </div>
 

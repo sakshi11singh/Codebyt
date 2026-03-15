@@ -2,13 +2,13 @@ import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink, Globe } from "lucide-react";
 
 const projects = [
-  { slug: "oye-college", title: "OYe College E-Learning", category: "EdTech Platform", desc: "Built an exceptional online learning platform serving over 10,000 students across India. Increased student engagement by 200%.", tech: ["Next.js", "Node.js", "AWS", "PostgreSQL", "Redis"] },
-  { slug: "rbs-tours", title: "RBS Tours Automation", category: "Travel Software", desc: "Automated a legacy travel booking system. Increased customer bookings by 150% and expanded to 50+ destinations seamlessly.", tech: ["React", "Python", "GraphQL", "Docker"] },
-  { slug: "dry-fruits-delight", title: "Dry Fruits Delight", category: "E-Commerce", desc: "Headless commerce platform processing over 50,000 orders with a 99.9% uptime and outstanding customer satisfaction.", tech: ["Next.js", "Stripe", "TailwindCSS", "AWS"] },
-  { slug: "innovatelab-ai", title: "InnovateLab AI Tools", category: "Mobile / AI", desc: "Cross-platform mobile app with AI-powered recommendations, serving 500K+ active users globally.", tech: ["React Native", "TensorFlow", "Firebase"] },
+  { slug: "oye-college", title: "OYe College E-Learning", category: "EdTech Platform", desc: "Built an exceptional online learning platform serving over 10,000 students across India. Increased student engagement by 200%.", tech: ["Next.js", "Node.js", "AWS", "PostgreSQL", "Redis"], website: "https://oyecollege.com/" },
+  { slug: "rbs-tours", title: "RBS Tours Automation", category: "Travel Software", desc: "Automated a legacy travel booking system. Increased customer bookings by 150% and expanded to 50+ destinations seamlessly.", tech: ["React", "Python", "GraphQL", "Docker"], website: "https://rbstourandtravels.in/" },
+  { slug: "dry-fruits-delight", title: "Dry Fruits Delight", category: "E-Commerce", desc: "Headless commerce platform processing over 50,000 orders with a 99.9% uptime and outstanding customer satisfaction.", tech: ["Next.js", "Stripe", "TailwindCSS", "AWS"], website: "https://www.dryfruitsdelight.com/" },
+  { slug: "innovatelab-ai", title: "InnovateLab AI Tools", category: "Mobile / AI", desc: "Cross-platform mobile app with AI-powered recommendations, serving 500K+ active users globally.", tech: ["React Native", "TensorFlow", "Firebase"], website: "#" },
 ];
 
 const Portfolio = () => {
@@ -47,11 +47,23 @@ const Portfolio = () => {
                 <span className="text-xs text-primary font-bold uppercase tracking-wider">{project.category}</span>
                 <h3 className="font-heading text-xl font-bold text-foreground mt-2 mb-3 tracking-wide">{project.title}</h3>
                 <p className="text-sm text-muted-foreground mb-6 leading-relaxed relative z-10">{project.desc}</p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((t) => (
                     <span key={t} className="text-xs rounded-full border border-border/40 bg-secondary/30 px-3 py-1 text-muted-foreground font-medium">{t}</span>
                   ))}
                 </div>
+                {project.website !== "#" && (
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground" 
+                    asChild
+                  >
+                    <a href={project.website} target="_blank" rel="noopener noreferrer">
+                      Visit Site <Globe className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                )}
               </div>
             </motion.div>
           ))}

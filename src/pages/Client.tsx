@@ -144,7 +144,7 @@ const Client = () => {
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{client.desc}</p>
-                <div className="space-y-2">
+                <div className="space-y-2 mb-4">
                   {client.results.map((result) => (
                     <div key={result} className="flex items-center gap-2 text-xs">
                       <Zap className="h-3 w-3 text-primary" />
@@ -152,6 +152,16 @@ const Client = () => {
                     </div>
                   ))}
                 </div>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground" 
+                  asChild
+                >
+                  <a href={client.website} target="_blank" rel="noopener noreferrer">
+                    Visit Site <Globe className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
               </motion.div>
             ))}
           </div>
