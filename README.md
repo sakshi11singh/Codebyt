@@ -154,77 +154,56 @@ npm run lint
 
 ## 🚀 Deployment
 
-### Deploy to Azure (Recommended)
+### Deploy to Netlify (Recommended)
 
-Your project is **fully configured** for Azure deployment with automated scripts and comprehensive documentation.
+Your project is **fully configured** for Netlify deployment with automated builds and SPA routing.
 
-#### ⚡ Quick Deploy (Under 10 Minutes)
+#### ⚡ Quick Deploy (Under 5 Minutes)
 
-**Windows:**
+**Option 1: Netlify CLI**
 ```bash
-deploy-azure.bat
-```
+# Install Netlify CLI
+npm install -g netlify-cli
 
-**Linux/Mac:**
-```bash
-chmod +x deploy-azure.sh
-./deploy-azure.sh
-```
-
-#### 📋 Prerequisites
-
-- Azure Account (create free at https://azure.microsoft.com/free)
-- Azure CLI installed (`az --version`)
-- Node.js 18+
-- Git installed
-
-#### 🔧 Manual Deployment to Azure Static Web Apps
-
-```bash
-# 1. Install dependencies
-npm install
-
-# 2. Build for production
+# Build the project
 npm run build
 
-# 3. Login to Azure
-az login
-
-# 4. Install Static Web Apps extension
-az extension add --name staticwebapp
-
-# 5. Deploy
-az staticwebapp create \
-  --name codebyte-website \
-  --resource-group codebyte-rg \
-  --source . \
-  --location eastus \
-  --branch main \
-  --app-location "/" \
-  --output-location "dist"
+# Deploy to production
+netlify deploy --prod
 ```
 
-#### 📁 Configuration Files
+**Option 2: Git-based Deployment (Recommended for CI/CD)**
+1. Push your code to a GitHub repository
+2. Go to [Netlify](https://app.netlify.com)
+3. Click "Add new site" → "Import an existing project"
+4. Connect your GitHub repository
+5. Netlify will auto-detect settings:
+   - **Build command**: `npm run build`
+   - **Publish directory**: `dist`
+6. Click "Deploy site"
 
-All Azure configuration is already set up:
+#### 📋 Configuration
 
-- **`staticwebapp.config.json`** - SPA routing, security headers, caching policies
-- **`web.config`** - IIS configuration for Windows hosting
-- **`azure-app.yaml`** - App Service configuration
-- **`deployment.json`** - Deployment metadata
+Netlify configuration is already set up in `netlify.toml`:
+- ✅ Automatic SPA routing with redirects
+- ✅ Build optimization
+- ✅ Preview deployments for pull requests
 
 #### 💰 Cost Estimate
 
-**Azure Static Web Apps (Free Tier):**
+**Netlify Free Tier:**
 - ✅ FREE for personal projects
+- ✅ Unlimited sites
 - ✅ Includes SSL certificate
 - ✅ Automatic deployments from Git
 - ✅ Custom domains supported
-- ❌ Limited to 3 environments
+- ✅ 100GB bandwidth/month
+- ❌ Limited build minutes (100/month)
 
-**Azure App Service (B1 Basic):** ~$13/month
-- More control and flexibility
-- Auto-scaling, deployment slots
+**Netlify Pro:** $19/month
+- More build minutes
+- Advanced collaboration features
+- Higher bandwidth limits
 
 #### ✅ Post-Deployment Checklist
 
@@ -239,43 +218,19 @@ After deployment, verify:
 - [ ] HTTPS enabled (green padlock)
 - [ ] Lighthouse score > 90
 
-#### 🔄 Other Deployment Methods
+#### 🔄 Alternative: Manual Deploy
 
-**Azure App Service (More Control):**
 ```bash
-# Create resource group
-az group create --name codebyte-rg --location eastus
+# Install Netlify CLI
+npm install -g netlify-cli
 
-# Create App Service Plan
-az appservice plan create \
-  --name codebyte-plan \
-  --resource-group codebyte-rg \
-  --sku B1 \
-  --is-linux
+# Login to Netlify
+netlify login
 
-# Create Web App
-az webapp create \
-  --resource-group codebyte-rg \
-  --plan codebyte-plan \
-  --name codebyte-webapp \
-  --runtime "NODE|18-lts" \
-  --deployment-local-git
-
-# Configure and deploy
-az webapp config appsettings set \
-  --resource-group codebyte-rg \
-  --name codebyte-webapp \
-  --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
-
-git remote add azure <DEPLOYMENT_URL>
-git push azure main
+# Build and deploy
+npm run build
+netlify deploy --prod
 ```
-
-**Azure Storage (Low Cost):**
-1. Create Storage Account in Azure Portal
-2. Enable "Static website" in settings
-3. Upload contents of `dist` folder to `$web` container
-4. Access via provided endpoint URL
 
 #### 🆘 Troubleshooting
 
@@ -289,40 +244,32 @@ npm run build
 
 **404 on page refresh:**
 - This is normal for SPAs
-- Ensure `staticwebapp.config.json` or `web.config` is present
+- The `netlify.toml` file handles routing automatically
+- Ensure `_redirects` rule is present
 
 **Assets not loading:**
 - Check that all asset paths are relative
 - Verify build output in `dist/` folder
 
-#### 📊 Monitoring & Analytics
-
-Enable Application Insights:
-```bash
-az monitor app-insights component create \
-  --app codebyte-insights \
-  --location eastus \
-  --resource-group codebyte-rg \
-  --application-type web
-```
-
 #### 🎯 Next Steps After Deployment
 
 1. **Add Custom Domain** (Optional)
-   - Go to Azure Portal → Your Static Web App → Custom domains
-   - Configure DNS records
+   - Go to Netlify → Site settings → Domain management
+   - Add custom domain
    - SSL auto-provisioned
 
-2. **Set Up CI/CD** (Recommended)
-   - Connect GitHub repository
-   - Automatic deployments on push
+2. **Set Up Environment Variables**
+   - Add API keys and secrets in Netlify dashboard
+   - Go to Site settings → Build & deploy → Environment
 
-3. **Configure Environment Variables**
-   - Add API keys and secrets in Azure Portal
+3. **Enable Deploy Previews**
+   - Connect GitHub for automatic preview deployments
+   - Every pull request gets a unique preview URL
 
 4. **Performance Tuning**
-   - Enable CDN for global audience
+   - Enable Netlify CDN
    - Configure caching headers
+   - Optimize images further
 
 ### Deploy to Other Platforms
 
@@ -330,12 +277,6 @@ az monitor app-insights component create \
 ```bash
 npm install -g vercel
 vercel
-```
-
-#### Netlify
-```bash
-npm install -g netlify-cli
-netlify deploy --prod
 ```
 
 #### Manual Deployment
