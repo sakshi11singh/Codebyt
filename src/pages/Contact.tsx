@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import ContactFormSection from "@/components/home/ContactFormSection";
 import { motion } from "framer-motion";
+import { useCalendly } from "@/lib/calendly";
 
 const faqs = [
   { q: "How long does a typical project take?", a: "Most projects range from 6-16 weeks depending on scope. We provide detailed timelines during the discovery phase." },
@@ -10,6 +11,9 @@ const faqs = [
 ];
 
 const Contact = () => {
+  // Load Calendly widget
+  useCalendly();
+
   return (
     <Layout>
       <section className="section-padding pt-32">
